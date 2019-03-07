@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.SubClassAbsentDetailActivity">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="155dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/bg_horizontal"/>
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            layout="@layout/nav_main_light"/>
+
+    </FrameLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginStart="@dimen/activity_padding"
+        android:layout_marginEnd="@dimen/activity_padding"
+        android:layout_marginTop="@dimen/activity_padding"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        android:id="@+id/layout"
+        app:cardElevation="@dimen/home_card_elevation"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="10dp"
+        android:layout_height="wrap_content" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="XII RPL 2"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:text="Senin, 25 Feb"
+                android:textColor="@color/black_trans"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_reason_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_semi_bold"
+                android:text="Demam, 1 hari"
+                android:textColor="@color/black_main"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_status"
+                app:layout_constraintStart_toStartOf="@+id/tv_title"
+                app:layout_constraintTop_toTopOf="@+id/tv_status" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/bg_label"
+                android:paddingStart="12dp"
+                android:paddingTop="6dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="6dp"
+                android:text="Sakit"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/tv_reason_duration"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="24dp"
+                android:text="Ingin memberitahukan bahwa pada hari ini Kamis 28 Februari 2018 anak saya tidak dapat mengikuti pelajaran seperti biasa, dikarenakan sakit. Dengan ini, kami memohon kepada Bapak/Ibu Guru Wali Kelas XII MIPA 3 agar memberikan izin.
+
+Demikian yang dapat kami sampaikan. Atas perhatian Bapak/Ibu kami ucapkan terimakasih banyak."
+                android:textColor="@color/black_trans"
+                android:lineHeight="20dp"
+                app:layout_constraintBottom_toTopOf="@id/rv_img"
+                app:layout_constraintEnd_toEndOf="@+id/tv_date"
+                app:layout_constraintStart_toStartOf="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_status" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_img"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="24dp"
+                android:layout_marginBottom="24dp"
+                android:paddingEnd="24dp"
+                android:clipToPadding="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

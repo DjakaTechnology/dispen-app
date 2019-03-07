@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:clipToPadding="false"
+    android:clipChildren="false"
+    android:paddingStart="@dimen/activity_padding"
+    android:paddingEnd="@dimen/activity_padding"
+    android:paddingTop="12dp"
+    android:paddingBottom="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView
+        app:cardElevation="@dimen/home_card_elevation"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="10dp"
+        android:layout_height="@dimen/home_card_height" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                app:srcCompat="@drawable/ic_permission"
+                android:tint="@color/green_pale"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="Kelas XII RPL 2"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/img_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_sub_class"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="120dp"
+                android:layout_height="36.5dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/btn_create"
+                android:elevation="0dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Lihat Absensi"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+            <TextView
+                android:id="@+id/tv_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_bold"
+                android:text="XII"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/img_icon"
+                app:layout_constraintEnd_toEndOf="@+id/img_icon"
+                app:layout_constraintStart_toStartOf="@+id/img_icon"
+                app:layout_constraintTop_toTopOf="@+id/img_icon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

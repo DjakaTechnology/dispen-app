@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/activity_padding"
+    android:paddingTop="12dp"
+    android:paddingEnd="@dimen/activity_padding"
+    android:paddingBottom="12dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="@dimen/home_card_elevation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="18dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_title"
+                app:srcCompat="@drawable/ic_plus" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="Demam, 1 hari"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/img_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Senin, 25 Feb"
+                android:textColor="@color/black_trans"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="24dp"
+                android:text="Ingin memberitahukan bahwa pada hari ini Kamis 28 Februari 2018 anak saya tidak dapat mengikuti pelajaran seperti biasa, dikarenakan sakit. Dengan ini, kami memohon kepada Bapak/Ibu Guru Wali Kelas XII MIPA 3 agar memberikan izin.
+
+Demikian yang dapat kami sampaikan. Atas perhatian Bapak/Ibu kami ucapkan terimakasih banyak."
+                android:textColor="@color/black_trans"
+                android:lineHeight="20dp"
+                app:layout_constraintBottom_toTopOf="@id/btn_accept"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_date" />
+            <Button
+                android:id="@+id/btn_accept"
+                android:layout_width="0dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="24dp"
+                android:background="@color/green"
+                android:fontFamily="@font/nunito_bold"
+                android:onClick="submit"
+                android:text="Konfirmasi Surat"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_reason_duration"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

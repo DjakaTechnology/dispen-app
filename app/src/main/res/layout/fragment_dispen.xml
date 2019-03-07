@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".fragment.DispenFragment">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="112dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/bg_horizontal"/>
+        <TextView
+            android:id="@+id/tv_school"
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/activity_padding"
+            android:paddingEnd="@dimen/activity_padding"
+            android:textSize="32sp"
+            android:fontFamily="@font/nunito_bold"
+            android:textColor="@color/white"
+            android:text="@string/dispensation" />
+
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_dispen"
+        android:layout_width="match_parent"
+        android:clipChildren="false"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="12dp"
+        />
+</LinearLayout>

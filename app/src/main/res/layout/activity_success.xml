@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_vertical"
+    tools:context=".activity.SuccessActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        app:cardCornerRadius="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_send"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="32dp"
+            android:paddingBottom="32dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                android:textColor="@color/black_main"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/nunito_bold"
+                android:text="@string/success" />
+
+            <ImageView
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:id="@+id/imageView3"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="109dp"
+                android:layout_height="109dp"
+                app:srcCompat="@drawable/ic_succes" />
+
+            <TextView
+                android:id="@+id/tv_message"
+                android:gravity="center"
+                android:textColor="@color/black_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Surat berhasil dibuat. Tunggu konfirmasi dari orang tuamu yaa 😁" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_send"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:textAllCaps="false"
+        android:onClick="back"
+        android:fontFamily="@font/nunito_bold"
+        android:textSize="16sp"
+        android:text="@string/back_to_home"
+        android:textColor="@color/white"
+        android:background="@color/green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Dispen</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="greeting">Selamat Pagi, lorem ipsum</string>
+    <string name="school">SMA 90 Purwokerto</string>
+    <string name="permission">Izin</string>
+    <string name="sick">Sakit</string>
+    <string name="dispen">Dispen</string>
+    <string name="back_to_home">Kembali ke beranda</string>
+    <string name="success">Berhasil</string>
+    <string name="history">Riwayat</string>
+    <string name="dispensation">Dispensasi</string>
+    <string name="login">Masuk</string>
+</resources>
