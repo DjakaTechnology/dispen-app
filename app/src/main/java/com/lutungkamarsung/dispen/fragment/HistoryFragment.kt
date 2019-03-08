@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lutungkamarsung.dispen.R
 import com.lutungkamarsung.dispen.adapter.AdapterRVHistory
 import com.lutungkamarsung.dispen.connection.Request
+import com.lutungkamarsung.dispen.key.SharedKey
 import com.lutungkamarsung.dispen.model.PermissionModel
 import kotlinx.android.synthetic.main.fragment_history.view.*
 import kotlinx.coroutines.*
@@ -34,8 +35,9 @@ class HistoryFragment : Fragment() {
     }
 
     private fun prepareData() {
+        val typeId = SharedKey.getUserModel(context!!)!!.levelId
         dataJob = CoroutineScope(Dispatchers.IO).launch {
-            val request = Request.getPermissionMine(context!!)
+            val request = if(typeId == 1)Request.getPermissionMine(context!!) else Request.getPermissionMyChildHistory(context!!)
 
             withContext(Dispatchers.Main){
                 if(request.size > 0){

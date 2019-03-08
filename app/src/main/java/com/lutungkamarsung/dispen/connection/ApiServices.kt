@@ -1,9 +1,6 @@
 package com.lutungkamarsung.dispen.connection
 
-import com.lutungkamarsung.dispen.model.Classes
-import com.lutungkamarsung.dispen.model.GenericModel
-import com.lutungkamarsung.dispen.model.PermissionModel
-import com.lutungkamarsung.dispen.model.SubClass
+import com.lutungkamarsung.dispen.model.*
 import kotlinx.coroutines.Deferred
 import okhttp3.MultipartBody
 import retrofit2.Call
@@ -48,6 +45,9 @@ interface ApiServices {
     @GET("permission/me/child/unconfirmed")
     fun getPermissionMyChild():Deferred<Response<ArrayList<PermissionModel>>>
 
+    @GET("permission/me/child")
+    fun getPermissionMyChildHistory():Deferred<Response<ArrayList<PermissionModel>>>
+
     @GET("school/{id}/class")
     fun getClasses(@Path("id")id:Int):Deferred<Response<ArrayList<Classes>>>
 
@@ -62,6 +62,14 @@ interface ApiServices {
 
     @POST("permission/{id}/accept")
     fun acceptPermission(@Path("id")id:Int):Deferred<Response<GenericModel>>
+
+    @POST("login")
+    @FormUrlEncoded
+    fun login(@Field("email")email:String,
+              @Field("password")password:String):Deferred<Response<UserModel>>
+
+    @GET("child")
+    fun child():Deferred<Response<UserDetail>>
 
 
 

@@ -64,6 +64,8 @@ data class UserDetail(
     val parentId: Int = 0,
     @SerializedName("sub_class_id")
     val subClassId: Int? = 0,
+    @SerializedName("sub_class")
+    val subClass: SubClass? = SubClass(),
     @SerializedName("updated_at")
     val updatedAt: String? = "",
     @SerializedName("user_id")
@@ -92,15 +94,50 @@ data class SubClass(
     val id: Int? = 0,
     @SerializedName("name")
     val name: String? = "",
+    @SerializedName("classes")
+    val classes: Classes? = Classes(),
     @SerializedName("permission")
     val permission: ArrayList<PermissionModel> = ArrayList()
 ) : Parcelable
 
+@Parcelize
 data class Classes(
     @SerializedName("id")
     val id: Int? = 0,
     @SerializedName("name")
     val name: String? = "",
     @SerializedName("school_id")
-    val schoolId: Int? = 0
+    val schoolId: Int? = 0,
+    @SerializedName("school")
+    val school: School? = School()
+
+) : Parcelable
+
+data class UserModel(
+    @SerializedName("created_at")
+    val createdAt: String? = "",
+    @SerializedName("email")
+    val email: String? = "",
+    @SerializedName("email_verified_at")
+    val emailVerifiedAt: Any? = Any(),
+    @SerializedName("id")
+    val id: Int? = 0,
+    @SerializedName("level_id")
+    val levelId: Int? = 0,
+    @SerializedName("token")
+    val token: String? = "",
+    @SerializedName("updated_at")
+    val updatedAt: String? = "",
+    @SerializedName("user_detail")
+    val userDetail: UserDetail? = UserDetail()
 )
+
+@Parcelize
+data class School(
+    @SerializedName("address")
+    val address: String? = "",
+    @SerializedName("id")
+    val id: Int? = 0,
+    @SerializedName("name")
+    val name: String? = ""
+) : Parcelable

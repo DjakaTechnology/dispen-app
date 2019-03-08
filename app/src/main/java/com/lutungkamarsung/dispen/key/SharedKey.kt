@@ -1,8 +1,17 @@
 package com.lutungkamarsung.dispen.key
 
+import android.content.Context
+import com.lutungkamarsung.dispen.model.UserModel
+import com.google.gson.Gson
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
+
+
+
 object SharedKey {
     object Session {
         var SESSION = "USER_SESSION_MODEL"
+        var USER = "USER_JSON"
         var ID = "SESSION_ID"
         var TOKEN = "SESSION_TOKEN"
         var EMAIL = "SESSION_EMAIL"
@@ -22,6 +31,16 @@ object SharedKey {
         val TITLE: String = "TITLE"
         val ID: String = "ID"
         val MODEL:String= "MODEL"
+    }
+
+    fun getUserModel(c: Context): UserModel? {
+        val pref = c.getSharedPreferences(Session.SESSION, MODE_PRIVATE)
+        return try {
+            Gson().fromJson<UserModel>(pref.getString(Session.USER, null), UserModel::class.java)
+        } catch (e: Exception) {
+            null
+        }
+
     }
 
     object Result{

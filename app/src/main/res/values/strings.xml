@@ -13,4 +13,6 @@
     <string name="history">Riwayat</string>
     <string name="dispensation">Dispensasi</string>
     <string name="login">Masuk</string>
+    <string name="default_notification_channel_id">100027</string>
+    <string name="msg_token_fmt">lel</string>
 </resources>

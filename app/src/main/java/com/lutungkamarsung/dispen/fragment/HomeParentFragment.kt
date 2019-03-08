@@ -15,27 +15,49 @@ import com.lutungkamarsung.dispen.R
 import com.lutungkamarsung.dispen.adapter.AdapterRVChildPermission
 import com.lutungkamarsung.dispen.adapter.AdapterRVDispen
 import com.lutungkamarsung.dispen.connection.Request
+import com.lutungkamarsung.dispen.key.SharedKey
 import com.lutungkamarsung.dispen.model.PermissionModel
-import kotlinx.android.synthetic.main.fragment_dispen.view.*
 import kotlinx.android.synthetic.main.fragment_home_parent.view.*
 import kotlinx.coroutines.*
+import okhttp3.Dispatcher
 
 class HomeParentFragment : Fragment() {
     var dataJob: Job? = null
     var setterJob: Job? = null
+    var childJob:Job? = null
     var data:ArrayList<PermissionModel> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         val v =  inflater.inflate(R.layout.fragment_home_parent, container, false)
 
         prepareRV(v)
+        prepareTV(v)
         prepareData()
 
         return v
+    }
+
+    private fun prepareTV(v:View){
+        v.tv_greeting.text = "Selamat Pagi, " + SharedKey.getUserModel(context!!)!!.userDetail!!.name
+        v.tv_school.text = ""
+
+        getChildData(v)
+    }
+
+    private fun getChildData(v:View){
+        childJob = CoroutineScope(Dispatchers.IO).launch{
+            val request = Request.child(context!!)
+
+            withContext(Dispatchers.Main){
+                if(request != null){
+                    v.tv_school.text = request.subClass!!.classes!!.school!!.name
+                }
+            }
+        }
     }
 
     private fun prepareData() {
