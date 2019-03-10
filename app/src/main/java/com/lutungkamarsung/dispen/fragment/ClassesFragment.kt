@@ -13,14 +13,17 @@ import com.lutungkamarsung.dispen.R
 import com.lutungkamarsung.dispen.adapter.AdapterRVClasses
 import com.lutungkamarsung.dispen.adapter.AdapterRVHistory
 import com.lutungkamarsung.dispen.connection.Request
+import com.lutungkamarsung.dispen.key.SharedKey
 import com.lutungkamarsung.dispen.model.Classes
 import com.lutungkamarsung.dispen.model.PermissionModel
+import com.lutungkamarsung.dispen.model.UserModel
 import kotlinx.android.synthetic.main.fragment_classes.view.*
 import kotlinx.coroutines.*
 
 class ClassesFragment : Fragment() {
     var data:ArrayList<Classes> = ArrayList()
     var dataJob: Job? = null
+    var userModel:UserModel = UserModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,10 +32,21 @@ class ClassesFragment : Fragment() {
         // Inflate the layout for this fragment
         val v =  inflater.inflate(R.layout.fragment_classes, container, false)
 
+        preapreUserModel()
         prepareRV(v)
         prepareData()
+        prepareTV(v)
 
         return v
+    }
+
+    private fun preapreUserModel() {
+        userModel = SharedKey.getUserModel(context!!)!!
+    }
+
+    private fun prepareTV(v:View){
+        v.tv_greeting.text = "Selamat Pagi, ${userModel.userDetail!!.name}"
+        v.tv_school.text = userModel.userDetail!!.subClass!!.classes!!.school!!.name
     }
 
     private fun prepareData() {
@@ -40,10 +54,9 @@ class ClassesFragment : Fragment() {
             val request = Request.getClasses(context!!)
 
             withContext(Dispatchers.Main){
-                if(request.size > 0){
-                    data = request
+                data = request
+                if(view != null)
                     prepareRV(view!!)
-                }
             }
         }
     }

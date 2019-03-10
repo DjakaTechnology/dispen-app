@@ -13,12 +13,10 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.lutungkamarsung.dispen.R
 import com.lutungkamarsung.dispen.adapter.AdapterRVDispen
-import com.lutungkamarsung.dispen.adapter.AdapterRVHistory
 import com.lutungkamarsung.dispen.connection.Request
 import com.lutungkamarsung.dispen.model.PermissionModel
 import kotlinx.android.synthetic.main.fragment_dispen.view.*
 import kotlinx.coroutines.*
-import okhttp3.Dispatcher
 
 class DispenFragment : Fragment() {
     private var dataJob: Job? = null
@@ -43,7 +41,8 @@ class DispenFragment : Fragment() {
 
             withContext(Dispatchers.Main){
                 data = request
-                prepareRV(view!!)
+                if(view == null)
+                    prepareRV(view!!)
             }
         }
     }
@@ -54,11 +53,11 @@ class DispenFragment : Fragment() {
     }
 
 
-    fun acceptPermission(id:Int){
+    fun confirmPermission(id:Int, status:Int){
         val dialog = ProgressDialog.show(context, "",
             "Tunggu Sebentar...", true)
         setterJob = CoroutineScope(Dispatchers.IO).launch {
-            val requestBody = Request.acceptPermission(context!!, id)
+            val requestBody = Request.confirmPermission(context!!, id, status)
 
             withContext(Dispatchers.Main){
                 dialog.dismiss()

@@ -35,21 +35,6 @@ class MainActivity : AppCompatActivity() {
 
         prepareUserModel()
         prepareBottomNav()
-
-        FirebaseInstanceId.getInstance().instanceId
-            .addOnCompleteListener(OnCompleteListener { task ->
-                if (!task.isSuccessful) {
-                    Log.w("TAG", "getInstanceId failed", task.exception)
-                    return@OnCompleteListener
-                }
-
-                // Get new Instance ID token
-                val token = task.result?.token
-
-                Log.d("TAG", token)
-                Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
-            })
-        FirebaseMessaging.getInstance().isAutoInitEnabled = true
     }
 
     private fun prepareUserModel() {

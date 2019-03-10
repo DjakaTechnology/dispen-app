@@ -36,15 +36,15 @@ class FirebaseMC : FirebaseMessagingService() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 channelId,
-                "Channel human readable title",
+                "NotificationChannel1",
                 NotificationManager.IMPORTANCE_DEFAULT
             )
             manager.createNotificationChannel(channel)
         }
 
         val notification = NotificationCompat.Builder(this)
-            .setContentTitle(remoteMessage.notification!!.body)
-            .setContentText("ASD")
+            .setContentTitle(remoteMessage.notification!!.title)
+            .setContentText(remoteMessage.notification!!.body)
             .setSmallIcon(R.drawable.ic_menu_edit)
             .setAutoCancel(true)
             .setChannelId(channelId)

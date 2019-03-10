@@ -64,4 +64,10 @@ object MiscTools{
 
         return part
     }
+
+    fun dateToShortDate(date:String): String? {
+
+        val dateFormat = SimpleDateFormat("EEE, dd MMM")
+        return dateFormat.format(SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(date))
+    }
 }

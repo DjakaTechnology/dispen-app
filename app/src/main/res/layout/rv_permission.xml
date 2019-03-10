@@ -76,27 +76,51 @@
 Demikian yang dapat kami sampaikan. Atas perhatian Bapak/Ibu kami ucapkan terimakasih banyak."
                 android:textColor="@color/black_trans"
                 android:lineHeight="20dp"
-                app:layout_constraintBottom_toTopOf="@id/btn_accept"
+                app:layout_constraintBottom_toTopOf="@id/layout_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_date" />
-            <Button
-                android:id="@+id/btn_accept"
-                android:layout_width="0dp"
-                android:layout_height="62dp"
-                android:layout_marginTop="24dp"
-                android:background="@color/green"
-                android:fontFamily="@font/nunito_bold"
-                android:onClick="submit"
-                android:text="Konfirmasi Surat"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="16sp"
+
+            <LinearLayout
+                android:id="@+id/layout_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_reason_duration"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="1.0">
+
+                <Button
+                    android:id="@+id/btn_accept"
+                    android:layout_width="0dp"
+                    android:layout_height="62dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@color/green"
+                    android:fontFamily="@font/nunito_bold"
+                    android:onClick="submit"
+                    android:layout_weight="1"
+                    android:text="Izinkan"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_decline"
+                    android:layout_width="0dp"
+                    android:layout_height="62dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_weight="1"
+                    android:background="@color/red_pale"
+                    android:fontFamily="@font/nunito_bold"
+                    android:onClick="submit"
+                    android:text="Tolak"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

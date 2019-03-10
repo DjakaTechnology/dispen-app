@@ -13,19 +13,18 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.lutungkamarsung.dispen.R
 import com.lutungkamarsung.dispen.adapter.AdapterRVChildPermission
-import com.lutungkamarsung.dispen.adapter.AdapterRVDispen
 import com.lutungkamarsung.dispen.connection.Request
 import com.lutungkamarsung.dispen.key.SharedKey
 import com.lutungkamarsung.dispen.model.PermissionModel
 import kotlinx.android.synthetic.main.fragment_home_parent.view.*
 import kotlinx.coroutines.*
-import okhttp3.Dispatcher
 
 class HomeParentFragment : Fragment() {
     var dataJob: Job? = null
     var setterJob: Job? = null
     var childJob:Job? = null
     var data:ArrayList<PermissionModel> = ArrayList()
+    var dialog:ProgressDialog? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,7 +65,8 @@ class HomeParentFragment : Fragment() {
 
             withContext(Dispatchers.Main){
                 data = request
-                prepareRV(view!!)
+                if(view != null)
+                    prepareRV(view!!)
             }
         }
     }
@@ -77,14 +77,14 @@ class HomeParentFragment : Fragment() {
     }
 
 
-    fun acceptPermission(id:Int){
-        val dialog = ProgressDialog.show(context, "",
+    fun confirmPermission(id:Int, status:Int){
+        dialog = ProgressDialog.show(context, "",
             "Tunggu Sebentar...", true)
         setterJob = CoroutineScope(Dispatchers.IO).launch {
-            val requestBody = Request.acceptPermission(context!!, id)
+            val requestBody = Request.confirmPermission(context!!, id, status)
 
             withContext(Dispatchers.Main){
-                dialog.dismiss()
+                dialog!!.dismiss()
                 Toast.makeText(context!!, "Sukses", Toast.LENGTH_SHORT).show()
                 if(requestBody.result!!)
                     prepareData()

@@ -40,8 +40,8 @@ class HistoryFragment : Fragment() {
             val request = if(typeId == 1)Request.getPermissionMine(context!!) else Request.getPermissionMyChildHistory(context!!)
 
             withContext(Dispatchers.Main){
-                if(request.size > 0){
-                    data = request
+                data = request
+                if(view != null){
                     prepareRV(view!!)
                 }
             }

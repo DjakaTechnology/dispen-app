@@ -7,11 +7,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.HomeFragment">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="218dp"
-        android:background="@drawable/bg_horizontal"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:clipToPadding="false"
@@ -19,9 +14,15 @@
         android:paddingEnd="@dimen/activity_padding"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
+        <ImageView
+            android:scaleType="centerCrop"
+            android:layout_marginStart="-16dp"
+            android:layout_marginEnd="-16dp"
+            android:layout_width="match_parent"
+            android:layout_height="218dp"
+            app:srcCompat="@drawable/bg_horizontal"/>
         <TextView
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="-196dp"
             android:id="@+id/tv_greeting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

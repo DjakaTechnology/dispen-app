@@ -47,7 +47,7 @@ class SubClassAbsentDetailActivity : AppCompatActivity() {
     private fun showImage() {
         if(model!!.img == null ||  model!!.img == "")
             return
-        rv_img.adapter = AdapterRVImgSick(convertStringToArray(), this)
+        rv_img.adapter = AdapterRVImgSick(convertStringToArray(), this, true)
         rv_img.layoutManager = LinearLayoutManager(this, LinearLayout.HORIZONTAL, true)
     }
 
@@ -75,6 +75,7 @@ class SubClassAbsentDetailActivity : AppCompatActivity() {
         tv_reason_duration.text = model!!.title
         tv_status.text = model!!.permissionType!!.name
         tv_desc.text = model!!.description
+        tv_date.text = MiscTools.dateToShortDate(model!!.createdAt!!)
     }
 
     fun back(v:View){

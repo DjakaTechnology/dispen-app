@@ -2,10 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/bg_vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.SplashScreenActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/bg_vertical" />
 
     <FrameLayout
         android:id="@+id/fl_hand"

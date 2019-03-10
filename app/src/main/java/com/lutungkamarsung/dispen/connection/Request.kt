@@ -30,14 +30,14 @@ object Request{
         }
     }
 
-    suspend fun submitDispentation(context:Context, permission:PermissionModel): GenericModel {
+    suspend fun submitDispentation(context:Context, permission:PermissionModel): GenericModel? {
         val api = getApiService(context)
-        val request = api.dispenInsert(permission.title!!, permission.startHour!!, permission.endHour!!, permission.description!!, 3)
+        val request = api.dispenInsert(permission.title!!, permission.startHour!!, permission.endHour!!, permission.description!!, 2)
         return try {
             return request.await().body()!!
         }catch (e: Exception){
             Log.e("TAG", "It doesnt work" + e.message)
-            GenericModel()
+            null
         }
     }
 
@@ -129,9 +129,9 @@ object Request{
         }
     }
 
-    suspend fun acceptPermission(context:Context, id:Int):GenericModel{
+    suspend fun confirmPermission(context:Context, id:Int, status:Int):GenericModel{
         val api = getApiService(context)
-        val request = api.acceptPermission(id)
+        val request = api.confirmPermission(id, status)
         return try {
             return request.await().body()!!
         }catch (e: Exception){
@@ -142,9 +142,9 @@ object Request{
 
     private fun getApiService(context: Context) = RetroConfig.getApiServices(context)
 
-    suspend fun login(context:Context, email:String, password:String):UserModel?{
+    suspend fun login(context:Context, email:String, password:String, token:String):UserModel?{
         val api = getApiService(context)
-        val request = api.login(email, password)
+        val request = api.login(email, password, token)
         return try{
             return request.await().body()!!
         }catch (e: Exception){

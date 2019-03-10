@@ -13,13 +13,13 @@ class SuccessActivity : AppCompatActivity() {
         setContentView(R.layout.activity_success)
 
         try {
-            tv_message.text = intent.extras.getString(SharedKey.Result.MESSAGE)
+            tv_message.text = intent.extras!!.getString(SharedKey.Result.MESSAGE)
         }catch (e:Exception){
 
         }
     }
 
     fun back(){
-        onBackPressed()
+        finish()
     }
 }

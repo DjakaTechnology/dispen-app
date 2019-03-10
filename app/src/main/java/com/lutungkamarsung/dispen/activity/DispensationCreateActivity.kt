@@ -34,7 +34,7 @@ class DispensationCreateActivity : AppCompatActivity() {
                                 endHour = Integer.parseInt(sp_end.selectedItem.toString()),
                                 description = et_desc.text.toString()))
             withContext(Dispatchers.Main){
-                if(request.result!!)
+                if(request!!.result!!)
                     onSucceed()
             }
         }

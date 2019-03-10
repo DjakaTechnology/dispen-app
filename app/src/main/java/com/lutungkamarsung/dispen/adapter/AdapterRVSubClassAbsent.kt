@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.lutungkamarsung.dispen.R
 import com.lutungkamarsung.dispen.activity.SubClassAbsentDetailActivity
+import com.lutungkamarsung.dispen.key.MiscTools
 import com.lutungkamarsung.dispen.key.SharedKey
 import com.lutungkamarsung.dispen.model.PermissionModel
 import kotlinx.android.synthetic.main.rv_subclass_absent.view.*
@@ -27,6 +28,7 @@ class AdapterRVSubClassAbsent(private var data: ArrayList<PermissionModel>, priv
     override fun onBindViewHolder(myViewHolder: MyViewHolder, i: Int) {
         val v = myViewHolder.itemView
         v.tv_title.text = data[i].userDetail!!.name.toString()
+        v.tv_date.text = MiscTools.dateToShortDate(data[i].createdAt!!)
 
         v.tv_reason_duration.text = data[i].title
         v.tv_status.text = data[i].permissionType!!.name

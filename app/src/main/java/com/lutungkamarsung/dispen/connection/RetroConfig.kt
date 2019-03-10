@@ -19,7 +19,7 @@ object RetroConfig {
             chain.proceed(newRequest)
         }.build()
 
-        return Retrofit.Builder().baseUrl("http://192.168.0.105/api/").client(client).addConverterFactory(
+        return Retrofit.Builder().baseUrl("http://dispen.djaka.id/api/").client(client).addConverterFactory(
             ScalarsConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())

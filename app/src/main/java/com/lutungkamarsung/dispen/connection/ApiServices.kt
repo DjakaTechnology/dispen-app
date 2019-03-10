@@ -60,13 +60,15 @@ interface ApiServices {
     @GET("subclass/dispen")
     fun getDispenSubClass():Deferred<Response<ArrayList<SubClass>>>
 
-    @POST("permission/{id}/accept")
-    fun acceptPermission(@Path("id")id:Int):Deferred<Response<GenericModel>>
+    @POST("permission/{id}/confirm")
+    @FormUrlEncoded
+    fun confirmPermission(@Path("id")id:Int, @Field("status")status:Int):Deferred<Response<GenericModel>>
 
     @POST("login")
     @FormUrlEncoded
     fun login(@Field("email")email:String,
-              @Field("password")password:String):Deferred<Response<UserModel>>
+              @Field("password")password:String,
+              @Field("device_key")device_key:String):Deferred<Response<UserModel>>
 
     @GET("child")
     fun child():Deferred<Response<UserDetail>>

@@ -11,6 +11,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <androidx.cardview.widget.CardView app:cardElevation="30dp"
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         app:cardCornerRadius="10dp"
         android:layout_height="wrap_content">
