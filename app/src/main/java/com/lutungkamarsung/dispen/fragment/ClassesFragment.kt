@@ -29,7 +29,6 @@ class ClassesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val v =  inflater.inflate(R.layout.fragment_classes, container, false)
 
         preapreUserModel()
@@ -62,9 +61,9 @@ class ClassesFragment : Fragment() {
     }
 
     private fun prepareRV(view: View) {
-        view.rv_classes.adapter = AdapterRVClasses(data, context!!)
-        view.rv_classes.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        view.rv_classes.run {
+            adapter = AdapterRVClasses(data, context!!)
+            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        }
     }
-
-
 }

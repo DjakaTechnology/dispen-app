@@ -154,9 +154,7 @@ class SickCreateActivity : AppCompatActivity() {
             val result = Request.uploadImg(baseContext, fileToUpload)
 
             withContext(Dispatchers.Main) {
-                if (result.result == true) {
-                    onSucceed(result)
-                }
+                if (result.result == true) onSucceed(result)
             }
         }
     }

@@ -1,33 +1,20 @@
 package com.lutungkamarsung.dispen
 
-import android.app.Service
-import android.content.Intent
-import android.os.IBinder
+import android.R
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.media.RingtoneManager
+import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
-import com.google.firebase.messaging.RemoteMessage
-import com.google.firebase.messaging.FirebaseMessagingService
 import androidx.core.app.NotificationManagerCompat
-import android.content.Context.NOTIFICATION_SERVICE
-import androidx.core.content.ContextCompat.getSystemService
-import android.app.NotificationManager
-import android.R
-import android.media.RingtoneManager
-import android.app.PendingIntent
-import android.app.NotificationChannel
-import android.os.Build
-
-
-
-
-
-
-
+import com.google.firebase.messaging.FirebaseMessagingService
+import com.google.firebase.messaging.RemoteMessage
 
 class FirebaseMC : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
-        Log.d("FIREBASE", remoteMessage!!.notification!!.body)
+        Log.d(TAG, remoteMessage!!.notification!!.body)
 
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val manager = NotificationManagerCompat.from(applicationContext)
@@ -54,8 +41,5 @@ class FirebaseMC : FirebaseMessagingService() {
         manager.notify(/*notification id*/0, notification)
     }
 
-    companion object {
-
-        val TAG = "MsgFirebaseServ"
-    }
+    companion object { val TAG = "MsgFirebaseServ" }
 }

@@ -40,7 +40,6 @@ object SharedKey {
         } catch (e: Exception) {
             null
         }
-
     }
 
     object Result{

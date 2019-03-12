@@ -47,9 +47,9 @@ object MiscTools{
 
     fun getRealPathFromURIPath(contentURI: Uri, activity: Activity): String {
         val cursor = activity.contentResolver.query(contentURI, null, null, null, null)
-        if (cursor == null) {
-            return contentURI.getPath()
-        } else {
+        if (cursor == null)
+            return contentURI.getPath()!!
+        else {
             cursor.moveToFirst()
             val idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
             return cursor.getString(idx)
@@ -66,7 +66,6 @@ object MiscTools{
     }
 
     fun dateToShortDate(date:String): String? {
-
         val dateFormat = SimpleDateFormat("EEE, dd MMM")
         return dateFormat.format(SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(date))
     }
